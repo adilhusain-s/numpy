@@ -10,7 +10,7 @@ permissions: read-all
 
 jobs:
   circleci_artifacts_redirector_job:
-    runs-on: ubuntu-22.04-ppc64le
+    runs-on: ubuntu-22.04-ppc64le-ppc64le
     if: "github.repository == 'numpy/numpy' && !contains(github.event.head_commit.message, '[circle skip]') && !contains(github.event.head_commit.message, '[skip circle]')  && github.event.context == 'ci/circleci: build'"
     name: Run CircleCI artifacts redirector
     permissions:

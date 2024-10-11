@@ -38,7 +38,7 @@ jobs:
     permissions:
       contents: read  # to fetch code (actions/checkout)
     name: Build NumPy distribution for Pyodide
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-22.04-ppc64le
     # To enable this workflow on a fork, comment out:
     if: github.repository == 'numpy/numpy'
     steps:
@@ -63,7 +63,7 @@ jobs:
   # WARNING: this job will overwrite any existing WASM wheels.
   upload-wheels:
     name: Upload NumPy WASM wheels to Anaconda.org
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-22.04-ppc64le
     permissions: {}
     needs: [build-wasm-emscripten]
     if: >-

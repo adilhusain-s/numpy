@@ -18,7 +18,7 @@ permissions:
 
 jobs:
   musllinux_x86_64:
-    runs-on: ubuntu-22.04-ppc64le
+    runs-on: ubuntu-22.04-ppc64le-ppc64le
     # To enable this workflow on a fork, comment out:
     if: github.repository == 'numpy/numpy'
     container:
