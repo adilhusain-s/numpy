@@ -30,7 +30,7 @@ jobs:
   lint:
     # To enable this job and subsequent jobs on a fork, comment out:
     if: github.repository == 'numpy/numpy' && github.event_name != 'push'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-ppc64le
     continue-on-error: true
     steps:
     - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -50,7 +50,7 @@ jobs:
   smoke_test:
     # To enable this job on a fork, comment out:
     if: github.repository == 'numpy/numpy'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-ppc64le
     env:
       MESON_ARGS: "-Dallow-noblas=true -Dcpu-baseline=none -Dcpu-dispatch=none"
     strategy:
@@ -68,7 +68,7 @@ jobs:
 
   pypy:
     needs: [smoke_test]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-ppc64le
     if: github.event_name != 'push'
     steps:
     - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -86,7 +86,7 @@ jobs:
 
   debug:
     needs: [smoke_test]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-ppc64le
     if: github.event_name != 'push'
     steps:
     - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -150,7 +150,7 @@ jobs:
 
   benchmark:
     needs: [smoke_test]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-ppc64le
     if: github.event_name != 'push'
     steps:
     - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -187,7 +187,7 @@ jobs:
 
   sdist:
     needs: [smoke_test]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-ppc64le
     if: github.event_name != 'push'
     steps:
     - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -220,7 +220,7 @@ jobs:
 
   array_api_tests:
     needs: [smoke_test]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-ppc64le
     if: github.event_name != 'push'
     steps:
     - name: Checkout NumPy
@@ -257,7 +257,7 @@ jobs:
 
   custom_checks:
     needs: [smoke_test]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-ppc64le
     if: github.event_name != 'push'
     steps:
     - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -294,7 +294,7 @@ jobs:
 
   free-threaded:
     needs: [smoke_test]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-ppc64le
     if: github.event_name != 'push'
     steps:
     - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
