@@ -30,7 +30,7 @@ permissions:
 jobs:
   lint:
     # To enable this job and subsequent jobs on a fork, comment out:
-    # if: github.repository == 'numpy/numpy' && github.event_name != 'push'
+    # # if: github.repository == 'numpy/numpy' && github.event_name != 'push'
     runs-on: ubuntu-22.04-ppc64le
     continue-on-error: true
     steps:
@@ -48,7 +48,7 @@ jobs:
 
   smoke_test:
     # To enable this job on a fork, comment out:
-    # if: github.repository == 'numpy/numpy'
+    # # if: github.repository == 'numpy/numpy'
     runs-on: ubuntu-22.04-ppc64le
     env:
       MESON_ARGS: "-Dallow-noblas=true -Dcpu-baseline=none -Dcpu-dispatch=none"

@@ -29,7 +29,7 @@ permissions:
 jobs:
   linux_qemu:
     # To enable this workflow on a fork, comment out:
-    if: github.repository == 'numpy/numpy'
+    # if: github.repository == 'numpy/numpy'
     runs-on: ubuntu-22.04-ppc64le
     continue-on-error: true
     strategy:

@@ -55,7 +55,7 @@ permissions:
 jobs:
   openblas32_stable_nightly:
     # To enable this workflow on a fork, comment out:
-    if: github.repository == 'numpy/numpy'
+    # if: github.repository == 'numpy/numpy'
     runs-on: ubuntu-22.04-ppc64le
     strategy:
       fail-fast: false
@@ -113,7 +113,7 @@ jobs:
           spin test -j auto
 
   openblas_no_pkgconfig_fedora:
-    if: github.repository == 'numpy/numpy'
+    # if: github.repository == 'numpy/numpy'
     runs-on: ubuntu-22.04-ppc64le
     container: fedora:39
     name: "OpenBLAS (Fedora, no pkg-config, LP64/ILP64)"
@@ -147,7 +147,7 @@ jobs:
         run: spin test -- numpy/linalg
 
   flexiblas_fedora:
-    if: github.repository == 'numpy/numpy'
+    # if: github.repository == 'numpy/numpy'
     runs-on: ubuntu-22.04-ppc64le
     container: fedora:39
     name: "FlexiBLAS (LP64, ILP64 on Fedora)"
@@ -181,7 +181,7 @@ jobs:
         run: spin test -- numpy/linalg
 
   openblas_cmake:
-    if: github.repository == 'numpy/numpy'
+    # if: github.repository == 'numpy/numpy'
     runs-on: ubuntu-22.04-ppc64le
     name: "OpenBLAS with CMake"
     steps:
@@ -208,7 +208,7 @@ jobs:
         run: spin test -j auto -- numpy/linalg
 
   netlib-debian:
-    if: github.repository == 'numpy/numpy'
+    # if: github.repository == 'numpy/numpy'
     runs-on: ubuntu-22.04-ppc64le
     name: "Debian libblas/liblapack"
     steps:
@@ -236,7 +236,7 @@ jobs:
           spin test -j auto -- numpy/linalg
 
   netlib-split:
-    if: github.repository == 'numpy/numpy'
+    # if: github.repository == 'numpy/numpy'
     runs-on: ubuntu-22.04-ppc64le
     container: opensuse/tumbleweed
     name: "OpenSUSE Netlib BLAS/LAPACK"
@@ -266,7 +266,7 @@ jobs:
           spin test -j auto -- numpy/linalg
 
   mkl:
-    if: github.repository == 'numpy/numpy'
+    # if: github.repository == 'numpy/numpy'
     runs-on: ubuntu-22.04-ppc64le
     name: "MKL (LP64, ILP64, SDL)"
     steps:
@@ -329,7 +329,7 @@ jobs:
         run: spin test -- numpy/linalg
 
   blis:
-    if: github.repository == 'numpy/numpy'
+    # if: github.repository == 'numpy/numpy'
     runs-on: ubuntu-22.04-ppc64le
     name: "BLIS"
     steps:
@@ -365,7 +365,7 @@ jobs:
         run: spin test -- numpy/linalg
 
   atlas:
-    if: github.repository == 'numpy/numpy'
+    # if: github.repository == 'numpy/numpy'
     runs-on: ubuntu-22.04-ppc64le
     name: "ATLAS"
     steps:
