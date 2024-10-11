@@ -18,11 +18,11 @@ on:
       - main
       - maintenance/**
     paths-ignore:
-      - 'benchmarks/'
-      - '.circlecl/'
-      - 'docs/'
-      - 'meson_cpu/'
-      - 'tools/'
+      - "benchmarks/"
+      - ".circlecl/"
+      - "docs/"
+      - "meson_cpu/"
+      - "tools/"
   workflow_dispatch:
 
 defaults:
@@ -46,24 +46,24 @@ jobs:
       fail-fast: false
       matrix:
         os_python:
-          - [ubuntu-22.04-ppc64le-ppc64le, '3.12']
-          - [windows-latest, '3.11']
-          - [macos-latest, '3.10']
+          - [ubuntu-22.04-ppc64le, "3.12"]
+          - [windows-latest, "3.11"]
+          - [macos-latest, "3.10"]
     steps:
-    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-      with:
-        submodules: recursive
-        fetch-tags: true
-    - uses: actions/setup-python@f677139bbe7f9c59b41e40162b753c062f5d49a3 # v5.2.0
-      with:
-        python-version: ${{ matrix.os_python[1] }}
-    - name: Install dependencies
-      run: |
-        pip install -r requirements/build_requirements.txt
-        pip install -r requirements/test_requirements.txt
-    - name: Build
-      run: |
-        spin build -j2 -- -Dallow-noblas=true -Ddisable-optimization=true --vsenv
-    - name: Run Mypy
-      run: |
-        spin mypy
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          submodules: recursive
+          fetch-tags: true
+      - uses: actions/setup-python@f677139bbe7f9c59b41e40162b753c062f5d49a3 # v5.2.0
+        with:
+          python-version: ${{ matrix.os_python[1] }}
+      - name: Install dependencies
+        run: |
+          pip install -r requirements/build_requirements.txt
+          pip install -r requirements/test_requirements.txt
+      - name: Build
+        run: |
+          spin build -j2 -- -Dallow-noblas=true -Ddisable-optimization=true --vsenv
+      - name: Run Mypy
+        run: |
+          spin mypy
